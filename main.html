@@ -8,10 +8,30 @@
 
 <body>	
 	<script>
-		function secondHighest(arr) {
+        function secondHighest(arr) {
 			//Write your code here
-			
-		}
+            if(arr.length ==0 || arr.length==1){
+                return "-Infinity";
+            }
+            else{
+                
+                arr.forEach(()=>{
+                    highest = Math.max.apply(null,arr);       
+                });
+                let highIndex;
+                arr.forEach((item,i)=>{
+                    if(item == highest){
+                        highIndex = i;
+                    }
+                });
+                arr.splice(highIndex,1);
+                arr.forEach(()=>{
+                    highest = Math.max.apply(null,arr);
+                })
+                return highest;         
+		    }
+
+        }
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
